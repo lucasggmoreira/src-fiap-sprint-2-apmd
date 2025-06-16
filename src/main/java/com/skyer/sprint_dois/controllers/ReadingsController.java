@@ -32,9 +32,9 @@ public class ReadingsController {
         return ResponseEntity.ok().body(readings);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<DataReadingDetailed> getReadingById(@PathVariable Long id) {
-        var reading = readingService.getReadingById(id);
+    @GetMapping("/{idSensor}")
+    public ResponseEntity<List<DataReadingDetailed>> getReadingById(@PathVariable String idSensor) {
+        var reading = readingService.getReadingsBySensorId(idSensor);
         return ResponseEntity.ok().body(reading);
     }
 

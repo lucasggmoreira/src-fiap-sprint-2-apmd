@@ -6,7 +6,6 @@ import com.skyer.sprint_dois.models.DataReadingSave;
 import com.skyer.sprint_dois.models.Reading;
 import com.skyer.sprint_dois.repositories.ReadingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,9 +29,13 @@ public class ReadingService {
                 .toList();
     }
 
-    public DataReadingDetailed getReadingById(Long id) {
-        var data = readingRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Leitura não encontrada! - ID: " + id));
-        return new DataReadingDetailed(data);
+    public List<DataReadingDetailed> getReadingsBySensorId(String sensorId) {
+        var data = readingRepository.findAllBySensorId(sensorId);
+        if (data.isEmpty()) {
+            throw new NotFoundException("No readings found for sensor ID: " + sensorId);
+        }
+        return data.stream()
+                .map(DataReadingDetailed::new)
+                .toList();
     }
 }

@@ -15,7 +15,6 @@
 
 2. Execute o comando para executar o programa:
 
-<br>
 
 ```bash
 mvn spring-boot:run
@@ -51,7 +50,7 @@ curl -X GET http://localhost:8080/api/readings
 ### Filtrar leituras por sensor
 
 ```bash
-curl -X GET http://localhost:8080/api/readings/1
+curl -X GET http://localhost:8080/api/readings/sensor1
 ```
 
 ## Localização do arquivo do banco de dados H2 Database
