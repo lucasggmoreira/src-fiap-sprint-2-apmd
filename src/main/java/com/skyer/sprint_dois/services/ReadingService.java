@@ -32,7 +32,7 @@ public class ReadingService {
 
     public DataReadingDetailed getReadingById(Long id) {
         var data = readingRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Leitura não encontrada - ID: " + id));
+                .orElseThrow(() -> new NotFoundException("Leitura não encontrada! - ID: " + id));
         return new DataReadingDetailed(data);
     }
 }

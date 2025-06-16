@@ -23,6 +23,10 @@ public class Reading {
     public Reading(DataReadingSave readingDTO) {
         this.sensorId = readingDTO.sensorId();
         this.value = readingDTO.value();
-        this.timestamp = LocalDateTime.now();
+        if (readingDTO.timestamp() != null) {
+            this.timestamp = readingDTO.timestamp();
+        } else {
+            this.timestamp = LocalDateTime.now();
+        }
     }
 }

@@ -4,10 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
 
+import java.time.LocalDateTime;
+
 public record DataReadingSave(
         @NotBlank
         String sensorId,
-        @NotNull
-        double value
+        double value,
+        LocalDateTime timestamp
 ) {
 }
