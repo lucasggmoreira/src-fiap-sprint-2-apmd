@@ -36,7 +36,7 @@ curl -X POST http://localhost:8080/api/readings \
   -H "Content-Type: application/json" \
   -d '{
     "sensorId": "sensor1",
-    "valor": 40,
+    "value": 40,
     "timestamp": "2025-04-15T10:30:00"
   }'
 ```
